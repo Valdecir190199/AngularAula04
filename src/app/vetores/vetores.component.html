@@ -1,0 +1,95 @@
+<div class="container">
+  <form class="m-5">
+    <div class="row">
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="estado.nome" name="nome" >
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="estado.sigla" name="sigla" >
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="estado.qtde" name="qtde" >
+      </div>
+      <div class="">
+        <button class="btn btn-info" type="button" name="button" (click)='adicionar()'>adicionar</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NOME</th>
+        <th scope="col">SIGLA</th>
+        <th scope="col">QUANTIDADE DE HABITANTES</th>
+        <th scope="col">EXCLUIR</th>
+        <th scope="col">ALTERAR</th>
+        <th scope="col">DETALHES</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estado of listaEstado; let i = index">
+        <td>{{estado.nome}}</td>
+        <td>{{estado.sigla}}</td>
+        <td>{{estado.qtde}}</td>
+        <td>
+          <button class="btn btn-info" type="button" name="button" (click)="excluir(i)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-info" type="button" name="button" (click)="alterar(i)" >
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-info" type="button" name="button" data-toggle="modal" data-target=".modal" (click)="pegarEstado(i)" >
+                <i class="fas fa-address-book"></i>
+
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+<div class="modal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-headers">
+
+            <h5 class="modal-title">{{estado.nome}}</h5>
+            <h5>{{estado.sigla}}</h5>
+            <h5>{{estado.qtde}} Habitantes </h5>
+
+          </div>
+
+          <div class="modal-body">
+
+
+
+
+
+
+
+          </div>
+
+          <div class="modal-footer">
+
+            <button class="btn btn-secondary" type="button"  name="button" data-dismiss="modal">Fechar</button>
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+</div>
